@@ -1,10 +1,9 @@
-<!DOCTYPE html>
 <html>
 <head>
  <meta charset="utf-8"> 
  <!-- <meta http-equiv="refresh" content="5"> -->
- <title>代码转换</title>
- <link rel="stylesheet" href="wcss.css" type="text/css" />
+ <title>HTML转换</title>
+ <link rel="stylesheet" href="wcss.css" type="text/css">
  <!--中英文对应
 	<格式>
 		 总体占用							=zongti
@@ -43,8 +42,9 @@
 		.gongneng{
 			top: 								0px;
 			width: 							50%;
-			height: 						98%;
-			z-index: 						5
+			height: 						99%;
+			z-index: 						2;
+			background-color: 	#FFFFFF;
 		}
 		.xuanfuxianshianniu{
 			position: 					fixed;
@@ -57,7 +57,7 @@
 			height: 						31%; 
 		}
 		.buwei{
-			width: 							100%;
+			width: 							98%;
 			height: 						100%;
 		}
   </style>
@@ -66,44 +66,86 @@
  </head>
 <body>
   <!-- 按钮 -->
-	<div  class="xuanfuxianshianniu">
-		<button id="xuanfuxianshianniuID"  name="" onclick="danji()">设置
+	<div class="xuanfuxianshianniu">
+		<button id="xuanfuxianshianniuID" name="" onclick="danji()">设置
 		 </button>
-	 </div>
+	 </div>[]
  <!-- 主体占用 -->
-	 <div id="zongtiID1" class="zongti" style="z-index:1"  > 
+	 <div id="zongtiID1" class="zongti" style="z-index:1"> 
 	  <!-- 输入框 -->
-		<div id="gongnengID1-1" class="gongneng">
-			<textarea id="xieru" class="buwei"></textarea>
-		 </div>
+			<div id="gongnengID1-1" class="gongneng">
+				<textarea id="xieru" class="buwei">	
+				</textarea>
+			 </div>
 		<!-- 显示框 -->
-		<div id="gongnengID1-2" class="gongneng">
-			
-		 </div>
+			<div id="gongnengID1-2" class="gongneng">					
+							
+				</div>
 	 <!-- /主体占用 -->
 	 </div>
  <!-- 悬浮显示 -->
-	<div id="zongtiID2" class="zongti" style="z-index: 2;display : none;"  >
+	<div id="zongtiID2" class="zongti" style="z-index: 2;display : none;">
 		<p>网址: <a href="http//github.com/yishenwuyan">github.yishenwuyan</a></p>
-		
+
 	 <!-- /悬浮显示 -->
 	 </div>
 
-	<script>
-	var dianji = 1
-
-	function danji(){
-		dianji = dianji +1
-		if (dianji == 3) {dianji =1}
-		if (dianji ==1) { document.getElementById('zongtiID2').style.display="none" }
-		if (dianji==2) { document.getElementById('zongtiID2').style.display="initial" }
-	}
-	function gengxin(){
-
-	}
-
-	 </script>
 
 	 
- </body>
+	<script>
+		var dianji = 1 ;
+		setTimeout("gengxin()",3000);
+
+		getInput.change(function(){
+      var a = parseInt(getPrice);
+      var b = parseInt(getInput.val());
+      //alert(a*b);
+      $(".totalPrice").html(a*b);
+		})  
+
+		if (dianji == 1) {"gengxin()"}
+		// var template = document.getElementById("gongnengID1-2").value ;
+
+		function danji(){
+			dianji = dianji +1
+			if (dianji == 3) {dianji =1}
+			if (dianji ==1) { document.getElementById('zongtiID2').style.display="none" }
+			if (dianji==2) { document.getElementById('zongtiID2').style.display="initial" }
+		}
+
+		function gengxin(){
+			document.getElementById('gongnengID1-2').innerHTML= document.getElementById('xieru').value;
+			setTimeout("gengxin()",3000);
+		}
+		
+	// 修改后  
+  getInput.change(function(){
+      var a = parseInt(getPrice);
+      var b = parseInt(getInput.val());
+      //alert(a*b);
+      $(".totalPrice").html(a*b);
+  })  
+    // 输入过程  
+  getInput.keyup(function(){
+      var a = parseInt(getPrice);
+      var b = parseInt(getInput.val());
+      //alert(a*b);
+      $(".totalPrice").html(a*b);
+  })
+
+   document.οnkeydοwn=function(e){	//对整个页面文档监听
+		 	var keyNum=window.event ? e.keyCode :e.which;		//获取被按下的键值
+		 	//判断如果用户按下了回车键（keycody=13）
+		 	if(keyNum==13){
+				alert('您按下了回车');
+		 	}
+ 
+		 	//判断如果用户按下了空格键(keycode=32)，
+		 	// if(keyNum==32){
+		 	// // 	 alert('您按下了空格');
+			 // 	}
+    }
+	 </script>
+
+</body>
 </html>
